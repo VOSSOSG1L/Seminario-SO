@@ -17,10 +17,10 @@ if [[ "$OSname" == 'Linux' || "$OSname" == 'linux' ]]; then
     # echo "$MBRAMamount"
     # echo "$MBHardDisk"
 
-    vboxmanage createvm --name "$name" --ostype Linux_64 --registe
+    vboxmanage createvm --name "$name" --ostype Linux_64 --register
     vboxmanage  modifyvm "$name" --cpus "$CPUnumber" --memory "$MBRAMamount" --vram "$VRAMamount"
 
-    DiskPath="$HOME/VirtualBox VMs/$VM_NAME/$VM_NAME.vdi"
+    DiskPath="$HOME/VirtualBox VMs/$name/$name.vdi"
     vboxmanage createhd --filename "$DiskPath" --size "$MBHardDisk" --variant Standard
 
     vboxmanage storagectl "$name" --name "$SATAname" --add sata --bootable on
